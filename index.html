@@ -44,12 +44,15 @@
   }
   .reveal.is-visible{ opacity:1; transform:none; }
   @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+  header.sticky{ -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  #mobile-nav{ max-height:0; overflow:hidden; transition: max-height .3s ease; }
+  #mobile-nav.open{ max-height:420px; }
 </style>
 </head>
 <body class="bg-[var(--cream)]">
 
 <!-- HEADER -->
-<header class="sticky top-0 z-50 bg-black/95 backdrop-blur border-b border-white/10">
+<header class="sticky top-0 z-50 bg-black/95 border-b border-white/10">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <div class="flex items-center gap-3">
       <img src="assets/logo-white.png" alt="Royal Credit Solution" class="h-12 w-auto">
@@ -65,13 +68,23 @@
       <a href="#testimonials" class="hover:text-[var(--gold-light)]">Testimonials</a>
       <a href="#faq" class="hover:text-[var(--gold-light)]">FAQ</a>
     </nav>
-    <div class="flex items-center gap-4">
-      <span class="hidden lg:inline-flex items-center gap-1.5 bg-white/5 border border-white/10 text-gray-300 text-xs font-semibold px-3 py-1.5 rounded-full">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        Licensed &amp; Bonded in Texas
-      </span>
-      <a href="#partner" class="gold-btn text-[#1a1205] font-bold text-sm px-5 py-2.5 rounded-full shadow">Partner With Us</a>
+    <div class="flex items-center gap-3">
+      <a href="#partner" class="hidden sm:inline-block gold-btn text-[#1a1205] font-bold text-sm px-5 py-2.5 rounded-full shadow">Partner With Us</a>
+      <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-white/15 text-white" aria-label="Toggle menu" aria-expanded="false">
+        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" /></svg>
+        <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="w-5 h-5 hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" /></svg>
+      </button>
     </div>
+  </div>
+  <div id="mobile-nav" class="md:hidden border-t border-white/10">
+    <nav class="flex flex-col px-6 py-4 gap-1 text-sm font-semibold text-gray-300">
+      <a href="#realtors" class="py-2.5 hover:text-[var(--gold-light)]">Partners</a>
+      <a href="#process" class="py-2.5 hover:text-[var(--gold-light)]">How It Works</a>
+      <a href="#pricing" class="py-2.5 hover:text-[var(--gold-light)]">Pricing</a>
+      <a href="#testimonials" class="py-2.5 hover:text-[var(--gold-light)]">Testimonials</a>
+      <a href="#faq" class="py-2.5 hover:text-[var(--gold-light)]">FAQ</a>
+      <a href="#partner" class="gold-btn text-[#1a1205] font-bold text-sm px-5 py-2.5 rounded-full shadow text-center mt-2">Partner With Us</a>
+    </nav>
   </div>
 </header>
 
@@ -169,7 +182,7 @@
       </span>
       <span class="flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-light)" stroke-width="1.8" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
-        One Flat Fee, No Surprises
+        No Upfront Fees
       </span>
     </div>
   </div>
@@ -268,17 +281,92 @@
 </section>
 
 <!-- PRICING -->
-<section id="pricing" class="max-w-4xl mx-auto px-6 py-24">
-  <div class="reveal text-center max-w-2xl mx-auto mb-10">
+<section id="pricing" class="max-w-5xl mx-auto px-6 py-24">
+  <div class="reveal text-center max-w-2xl mx-auto mb-4">
     <div class="text-[var(--gold-dark)] font-bold text-sm mb-3 label-tag">Pricing</div>
-    <h2 class="serif text-3xl sm:text-4xl text-[#1a1a1a]">One Flat Fee, Nothing Hidden</h2>
-    <p class="text-gray-500 mt-4">Simple enough to explain to your client in one sentence.</p>
+    <h2 class="serif text-3xl sm:text-4xl text-[#1a1a1a]">Transparent, Two-Part Pricing</h2>
+    <p class="text-gray-500 mt-4">No upfront fees, no surprises, we charge only after services have been performed.</p>
   </div>
-  <div class="reveal bg-black text-white rounded-3xl card-shadow p-10 text-center max-w-md mx-auto">
-    <div class="text-sm text-gray-400 label-tag mb-2">Full Credit Repair Program</div>
-    <div class="serif text-6xl gold-text mb-2">$1,500</div>
-    <div class="text-sm text-gray-400 mb-6">Setup and full service included. No monthly surprises.</div>
-    <a href="#partner" class="gold-btn inline-block w-full text-[#1a1205] font-bold py-3 rounded-lg">Refer a Client</a>
+  <p class="reveal text-center text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 max-w-xl mx-auto mb-12">
+    Placeholder figures below, swap in real pricing before this goes live.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-14">
+    <div class="reveal bg-black text-white rounded-2xl card-shadow p-7" style="transition-delay:0ms">
+      <div class="text-xs text-gray-400 label-tag mb-2">Initial Setup Investment</div>
+      <div class="serif text-4xl gold-text mb-2">Starts at $199</div>
+      <p class="text-sm text-gray-400">Quoted after a complete review of the client's credit report.</p>
+    </div>
+    <div class="reveal bg-black text-white rounded-2xl card-shadow p-7 border-2 border-[var(--gold)] relative" style="transition-delay:100ms">
+      <div class="absolute -top-3 left-7 bg-[var(--gold)] text-[#1a1205] text-[10px] font-bold label-tag px-3 py-1 rounded-full">Best Value</div>
+      <div class="text-xs text-gray-400 label-tag mb-2">Single Enrollment</div>
+      <div class="serif text-4xl gold-text mb-2">$349<span class="text-lg text-gray-400">/mo</span></div>
+      <p class="text-sm text-gray-400">Monthly service investment, typically 2 to 3 months.</p>
+    </div>
+    <div class="reveal bg-black text-white rounded-2xl card-shadow p-7" style="transition-delay:200ms">
+      <div class="text-xs text-gray-400 label-tag mb-2">Joint Enrollment</div>
+      <div class="serif text-4xl gold-text mb-2">$249<span class="text-lg text-gray-400">/mo</span></div>
+      <p class="text-sm text-gray-400">Per person, per month, for co-borrowers on the same loan.</p>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-6 mb-14">
+    <div class="reveal bg-[var(--cream-2)] rounded-2xl p-7">
+      <div class="text-sm font-bold text-gray-500 mb-4 label-tag">Why Pricing Varies</div>
+      <p class="text-sm text-gray-600 mb-5">Royal Credit Solution doesn't offer fixed-rate services. Cost varies based on:</p>
+      <div class="space-y-3 text-sm text-gray-700">
+        <div class="flex gap-3">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--gold)]/20 text-[var(--gold-dark)] text-xs font-bold flex items-center justify-center">1</span>
+          Number of negative items (collections, late payments, public records)
+        </div>
+        <div class="flex gap-3">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--gold)]/20 text-[var(--gold-dark)] text-xs font-bold flex items-center justify-center">2</span>
+          How recent the negative items are on the report
+        </div>
+        <div class="flex gap-3">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--gold)]/20 text-[var(--gold-dark)] text-xs font-bold flex items-center justify-center">3</span>
+          Dollar amounts involved in each negative item
+        </div>
+        <div class="flex gap-3">
+          <span class="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--gold)]/20 text-[var(--gold-dark)] text-xs font-bold flex items-center justify-center">4</span>
+          Creditors and collection agencies reporting
+        </div>
+      </div>
+      <div class="flex gap-3 mt-6 pt-5 border-t border-black/10 text-sm text-gray-600">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="1.8" class="w-5 h-5 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg>
+        No upfront payments. First payment isn't collected until services have been performed.
+      </div>
+    </div>
+    <div class="reveal bg-[var(--cream-2)] rounded-2xl p-7">
+      <div class="text-sm font-bold text-gray-500 mb-4 label-tag">What's Included</div>
+      <p class="text-sm text-gray-600 mb-5">Every enrollment includes the full set of repair and support services.</p>
+      <div class="space-y-2.5 text-sm text-gray-700">
+        <div class="flex gap-2.5 items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2" class="w-4 h-4 flex-shrink-0 mt-0.5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          One-on-one consultation with a senior credit expert
+        </div>
+        <div class="flex gap-2.5 items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2" class="w-4 h-4 flex-shrink-0 mt-0.5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          Unlimited disputes to all three credit bureaus
+        </div>
+        <div class="flex gap-2.5 items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2" class="w-4 h-4 flex-shrink-0 mt-0.5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          Debt validation and cease-and-desist letters
+        </div>
+        <div class="flex gap-2.5 items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2" class="w-4 h-4 flex-shrink-0 mt-0.5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          Ongoing support and coaching through closing
+        </div>
+        <div class="flex gap-2.5 items-start">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--gold-dark)" stroke-width="2" class="w-4 h-4 flex-shrink-0 mt-0.5"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>
+          Full CROA and Texas state-law compliance
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal text-center">
+    <a href="#partner" class="gold-btn inline-block text-[#1a1205] font-bold px-8 py-3.5 rounded-full shadow">Refer a Client</a>
   </div>
 </section>
 
@@ -333,10 +421,10 @@
       </details>
       <details class="reveal bg-[var(--cream)] rounded-xl px-5" style="transition-delay:160ms">
         <summary class="font-bold cursor-pointer py-5 flex items-center justify-between gap-4">
-          What does the $1,500 actually cover?
+          How does the setup and monthly pricing work?
           <svg class="faq-plus flex-shrink-0 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
         </summary>
-        <p class="text-sm text-gray-500 pb-5">Full setup and the complete service, credit report review, dispute strategy, and management through the full 60 to 90 day process. One flat fee, no recurring monthly charges.</p>
+        <p class="text-sm text-gray-500 pb-5">A one-time setup investment covers the initial credit report review and dispute strategy. After that, a monthly service investment covers ongoing disputes and management for as long as the program runs, typically 60 to 90 days. No upfront charge either way, the first payment isn't collected until services have been performed.</p>
       </details>
       <details class="reveal bg-[var(--cream)] rounded-xl px-5" style="transition-delay:240ms">
         <summary class="font-bold cursor-pointer py-5 flex items-center justify-between gap-4">
@@ -405,6 +493,28 @@
 </footer>
 
 <script>
+(function(){
+  var btn = document.getElementById('mobile-menu-btn');
+  var panel = document.getElementById('mobile-nav');
+  var iconOpen = document.getElementById('menu-icon-open');
+  var iconClose = document.getElementById('menu-icon-close');
+  if (btn && panel) {
+    btn.addEventListener('click', function(){
+      var isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+    });
+    panel.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        panel.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  }
+})();
 (function(){
   var els = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) {
